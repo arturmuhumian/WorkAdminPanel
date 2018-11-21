@@ -164,6 +164,7 @@ input:not([type="checkbox"])#namegroup,
          width: 99%;
     
 }
+
 input:not([type="checkbox"]).contract-button-show {
     width: 226px;
     text-align: center;
@@ -402,11 +403,11 @@ a.tools-status:hover {
     text-align: center;
     padding: 10px;
 }
-.new-icon   {
+/*.new-icon   {
     max-width: 20%;
-}
+}*/
 .new-icon-text {
-    max-width: 82%;
+    width: 82%;
 }
 .center-icon {
     text-align: center;
@@ -516,13 +517,18 @@ button#sort-by-customer:after {
     color: gray;
 }
 .sorts-by{
-    text-align: right;
+    text-align: center;
 }
 .sort-title {
     font-size: 18px;
 }
 /*Конец сортировки*/
-
+.end-contract {
+    font-size: 12px;
+    margin-left: 15px;
+    width: 234px;
+    
+}
 @media (max-width: 360px){
 .tools {
     padding-left: 0px!important;
@@ -539,12 +545,14 @@ button#sort-by-customer:after {
 }
 @media(max-width: 768px){
     .main-page {
-    margin-left: -15px;
+        margin-left: -15px;
+        margin-right: -15px;
     }
     
-    .new-icon {
+   /* .new-icon {
     max-width: 100%;
 }
+    */
 }
 @media(min-width: 1571px) and (max-width: 1700px){
 
@@ -552,6 +560,7 @@ button#sort-by-customer:after {
     font-size: 54px;
     height: auto;
     text-align: center;
+       display: block;
 }
 }
 
@@ -568,10 +577,12 @@ button#sort-by-customer:after {
     font-size: 54px;
     height: auto;
     text-align: center;
+       display: block
 }
     .before-page {
-        font-size: 10px;
+        font-size: 16px;
         padding: 5px 15px;
+        margin-left: 15px;
     }
     
     .watch-tools {
@@ -582,7 +593,8 @@ button#sort-by-customer:after {
     }
     
     .new-icon-text {
-    max-width: 100%;
+       width: 100%;
+        display: block;
 }
     
     .users-list span{

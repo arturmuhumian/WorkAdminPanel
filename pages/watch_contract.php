@@ -51,10 +51,8 @@
                      <div class="row">
                         <div class="col-lg-8 col-md-12 col-sm-12  col-xs-12">
                          <form class="search-users">
-                              
                               <input type="text" placeholder="Поиск договора" name="findcontrtacts" class="contract-button-show" value="<?php echo $_GET['findcontrtacts']; ?>">
                               <input type="submit" placeholder="Найти" value="Найти" id="find">
-                            
                          </form>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 sorts-by">
@@ -76,18 +74,17 @@
                             </div>
                      </div>
                      </div>
-                     <div class="row">
-                        <div class="col-md-12 col-xs-12 col-lg-8">
-                             <form class="search-contract" method="post" action="../php/export.php">
-                                 <label for="">Заканчиваются через 7 дней и менее</label><br>
-                                 <input type="submit" name="export7" class="btn btn-success" value="Export" /><br>
-                                 <hr>
-                                 <label for="">Заканчиваются через 30 дней и менее</label><br>
-                                 <input type="submit" name="export30" class="btn btn-success" value="Export" />
-                             </form>
-                             <a href="all_contract.php" class="before-page"> &larr; Вернуться на предыдущую страницу</a>
-                         </div>
-                     </div>
+                       <div class="row">
+                           <div class="col-md-12 col-xs-12 col-lg-8">
+                               <form class="search-contract" method="post" action="../php/export.php">
+                                   <label for="" class="end-contract">Заканчиваются через 7 дней и менее</label>
+                                   <input type="submit" name="export7" class="contract-button-show " value="Export" style="width: 113px;"/><br>
+                                   <label for="" class="end-contract">Заканчиваются через 30 дней и менее</label>
+                                   <input type="submit" name="export30" class="contract-button-show " value="Export" style="width: 113px;"/>
+                               </form>
+                               <a href="all_contract.php" class="before-page"> &larr; Вернуться на предыдущую страницу</a>
+                           </div>
+                       </div>
                    </div>
 
                 <div class="container-fluid">
@@ -104,27 +101,6 @@
                 <?php
                   $acces->showContract();
                 ?>
-                
-                
-                <!-- <div class="row users-accept">
-                    <div class="col-md-2 col-xs-12"> <span>ID</span></div>
-                    <div class="col-md-2 col-xs-12"> <span>Номер договора</span></div>
-                    <div class="col-md-2 col-xs-12"> <span>Дата заключения</span></div>
-                    <div class="col-md-2 col-xs-12"> <span>Дата окончания</span></div>
-                    <div class="col-md-1 col-xs-12"> <span>Статус</span></div>
-                    <div class="col-md-1 col-xs-12"> <span>111</span></div>
-                     <div class="col-md-2 col-xs-12 correct-tools"> 
-                        <div class="watch-tools">
-                          <a href="full_contract.php?id=" class="tools-add"><i class="far fa-eye"></i></a>
-                        </div>
-    
-                        <div class="watch-tools">
-                          <a href="correct_contract.php?id=" class="tools-correct"><i class="fas fa-pen"></i></a>   
-                        </div>
-                    </div>
-                </div> -->
-                      
-
             </div>
             </div>
         </div>   
