@@ -8,7 +8,7 @@
   $acces = new WorkForm();
   $acces->ControlAcces(9);
 ?>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Просмотр и редактирование договоров</title>
@@ -16,17 +16,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-<link rel="stylesheet" href="../css/style.css">
-<script src= "../js/all_query.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src= "../js/all_query.js"></script>
 </head>
 <body>
     <div class="admin">
@@ -78,17 +78,14 @@
                      </div>
                      <div class="row">
                         <div class="col-md-12 col-xs-12 col-lg-8">
-                         <form class="search-contract">
-                              
-                              <input type="button"  class="contract-button-show" value="Заканчиваются через 7 дней и менее">
-                             <input type="submit"  value="Excel" id="find-excel"><br>
-                              
-                               <input type="button" class="contract-button-show" value="Заканчиваются через 30 дней и менее">
-                              <input type="submit"  value="Excel" id="find--show-excel"><br>
-                            
-                    </form>
-                    
-                   <a href="all_contract.php" class="before-page"> &larr; Вернуться на предыдущую страницу</a>
+                             <form class="search-contract" method="post" action="../php/export.php">
+                                 <label for="">Заканчиваются через 7 дней и менее</label><br>
+                                 <input type="submit" name="export7" class="btn btn-success" value="Export" /><br>
+                                 <hr>
+                                 <label for="">Заканчиваются через 30 дней и менее</label><br>
+                                 <input type="submit" name="export30" class="btn btn-success" value="Export" />
+                             </form>
+                             <a href="all_contract.php" class="before-page"> &larr; Вернуться на предыдущую страницу</a>
                          </div>
                      </div>
                    </div>

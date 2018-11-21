@@ -6,7 +6,6 @@
             $qw = "SELECT name FROM users WHERE id=".$_SESSION['iduser'];
             $result = mysqli_fetch_array(mysqli_query($this->conn(),$qw));
             return $result['name'];
-
         }
         function FindContract()
         {
@@ -304,7 +303,6 @@
             if (!empty($filenm3) and !empty($_FILES['filenm3']['name'])) {
                 $oldname3= $_FILES['filenm3']['name'];
                 $newname3= "../uploads/contract/"."doc".time().rand(1000, 9999).".".pathinfo($_FILES['filenm3']['name'], PATHINFO_EXTENSION);
-                copy($_FILES['filenm3']['tmp_name'],$newname);
             }
             else
             {
@@ -649,8 +647,6 @@
                 $qw = "SELECT id , name , login , email , phone , status FROM users";
             else $qw = "SELECT id , name , login , email , phone , status FROM users WHERE id LIKE '$forfound' or name LIKE '%".$forfound."%' or login LIKE '%".$forfound."%' or email LIKE '%".$forfound."%' or phone LIKE '%".$forfound."%'";
 
-            // echo "qw=".$qw."<br>";
-        	
     		$result = mysqli_query($this->conn(),$qw);
     		while ($res = mysqli_fetch_array($result)) {
                 $color = $this->GetColor($res['status']);

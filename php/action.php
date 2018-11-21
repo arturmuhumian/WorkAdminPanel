@@ -59,10 +59,6 @@
         }
         if (isset($_POST['updcontract'])) {
             $updcontr = new WorkForm();
-            $updcontr->UPDcontr($_GET['id'],$_POST['numberofoder'],$_POST['datastart'],$_POST['dataend'],$_POST['status'],$_POST['namezakazchik'],$_POST['nameispolnitel']);
+            $updcontr->UPDcontr($_GET['id'], $_POST['numberofoder'], $_POST['datastart'], $_POST['dataend'], $_POST['status'], $_POST['namezakazchik'], $_POST['nameispolnitel']);
         }
-
-
-
-
 ?>
