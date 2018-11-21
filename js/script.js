@@ -1,0 +1,12 @@
+$(document).ready(function(){
+$(".to_newpassword").click(function(){
+$("#sendEmail").show();
+$("#register").hide();
+$("#login").hide();
+});
+$(".enterLogin").click(function(){
+    $("#sendEmail").hide();
+    $("#register").hide();
+    $("#login").show();
+});
+});
