@@ -11,7 +11,24 @@
         {
             $qw = "SELECT * FROM contracts";
             if (isset($_GET['findcontrtacts'])) {
-                $qw = $qw." WHERE numberofoder LIKE '%".$_GET['findcontrtacts']."%' or nameispolnitel LIKE '%".$_GET['findcontrtacts']."%' or datastart LIKE '%".$_GET['findcontrtacts']."%' or dataend LIKE '%".$_GET['findcontrtacts']."%' or namezakazchik LIKE '%".$_GET['findcontrtacts']."%'";
+                $str = $_GET['findcontrtacts'];
+                $qw = "SELECT * FROM contracts WHERE numberofoder LIKE '%".$str."%'or nameispolnitel LIKE '%".$str."%' or namezakazchik LIKE '%".$str."%' ";
+                //проблема в том что я стринг сравниваю с датой и возникает ошибка
+            }
+            if (isset($_GET['dateinterval']) and !empty($_GET['startdate']) or !empty($_GET['enddate']))
+            {
+                if (isset($_GET['startdate']) and isset($_GET['enddate']))
+                {
+                    $qw = "SELECT * FROM contracts WHERE datastart>='".$_GET['startdate']."' and dataend<='".$_GET['enddate']."'";
+                }
+                else if (isset($_GET['startdate']))
+                {
+                    $qw = "SELECT * FROM contracts WHERE datastart>='".$_GET['startdate']."'";
+                }
+                else if (isset($_GET['enddate']))
+                {
+                    $qw = "SELECT * FROM contracts WHERE dataend<='".$_GET['enddate']."'";
+                }
             }
             if (isset($_GET['date']))
             {
@@ -51,23 +68,15 @@
         }
         function showContract()
         {
-            if (!mysqli_set_charset($this->conn(), "utf8")) {
-                printf("Ошибка при загрузке набора символов utf8: %s <br>", mysqli_error($this->conn()));
-            }
-            else {
-                printf("Текущий набор символов: %s <br>", mysqli_character_set_name($this->conn()));
-            }
-            //mysql_query("SET NAMES 'utf8'");
-
             $restemp = mysqli_query($this->conn(),$this->FindContract());
             while ($result = mysqli_fetch_array($restemp)){
                 printf('
                     <div class="row users-accept">
-                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                        <div class="col-md-2 col-xs-12"><span>%s</span></div>
+                        <div class="col-md-2 col-xs-12"><span>%s</span></div>
+                        <div class="col-md-2 col-xs-12"><span>%s</span></div>
+                        <div class="col-md-2 col-xs-12"><span>%s</span></div>
+                        <div class="col-md-2 col-xs-12"><span>%s</span></div>
                          <div class="col-md-2 col-xs-12 correct-tools"> 
                             <div class="watch-tools">
                               <a href="full_contract.php?id=%s" class="tools-add"><i class="far fa-eye"></i></a>
@@ -425,7 +434,6 @@
             }
             else 
             {
-
                 // echo "<script type='text/javascript'>window.location.assign('admin.php');</script>";
                 header('Location: ../index.php');
             }
@@ -448,17 +456,12 @@
                 case "block": $qw = "UPDATE users SET status=2 WHERE id='$id'";
                     $checkhavelog = "SELECT login FROM blacklist WHERE login='$login'";
                     $qws = "INSERT INTO blacklist VALUES(NULL , '$login')";
-
-                    // echo "=>".$_GET['login']."<br>";
-
                     $fornext = mysqli_fetch_array(mysqli_query($this->conn(),$checkhavelog));
 
                     if (empty($fornext)) {
-                        if(mysqli_query($this->conn(),$qw) and mysqli_query($this->conn(),$qws))
-                        {
+                        if(mysqli_query($this->conn(),$qw) and mysqli_query($this->conn(),$qws)) {
                             echo "Пользователь заблокирован";
                         }
-                        
                     }
                     else 
                         echo "Пользователь ранее был заблокирован";
