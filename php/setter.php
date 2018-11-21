@@ -794,7 +794,8 @@
         }
     	function conn()
         {
-            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
+            //$link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
+            $link = mysqli_connect('neopeace.mysql.tools', 'neopeace_plpanel', '40Z%yCd!h7', 'neopeace_plpanel') or die("Ошибка " . mysqli_error($this->link));
             return $link;
         }
     }
