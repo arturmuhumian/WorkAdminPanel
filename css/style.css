@@ -11,7 +11,7 @@ body {
 }
 
 .left-side {
-    border: 2px solid lightgray;
+   /* border: 2px solid lightgray;*/
     padding: 0;
 }
 .btn-default {
@@ -126,7 +126,9 @@ form.search-users, form.search-contract {
     height: auto;
     padding-top: 10px;
 }
-
+.users-accept span {
+    vertical-align: middle;
+}
 .search-users>input:not([type="checkbox"]),
 .search-contract >input:not([type="checkbox"]){
     
@@ -263,9 +265,11 @@ textarea {
 
 }
 .correct-tools{
-        padding: 0px;
-     border-left: 1px solid lightgray;
+    padding: 0px;
+    border-left: 1px solid lightgray;
     text-align: center;
+    border-right: 1px solid lightgray;
+}
 }
 .center-block>p, .user-data>p {
     font-size: 14px;
@@ -529,6 +533,20 @@ button#sort-by-customer:after {
     width: 234px;
     
 }
+textarea#comment-from-mentor {
+    box-shadow: none;
+}
+/*.request-add {
+    background: green;
+}
+.request-cancel {
+    background: red;
+}
+.request-time {
+    background: yellow;
+}
+*/
+
 @media (max-width: 360px){
 .tools {
     padding-left: 0px!important;
@@ -570,18 +588,22 @@ button#sort-by-customer:after {
     font-size: 11px;
     
 }
+    
+    .hide-on-small {
+        display: none;
+    }
     .fa-eye {
             margin-right: 11px;
     }
    .icons {
-    font-size: 54px;
-    height: auto;
-    text-align: center;
+        font-size: 54px;
+        height: auto;
+        text-align: center;
        display: block
 }
     .before-page {
-        font-size: 16px;
-        padding: 5px 15px;
+        font-size: 14px;
+        padding: 5px 0px;
         margin-left: 15px;
     }
     

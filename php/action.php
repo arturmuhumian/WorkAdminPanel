@@ -37,7 +37,7 @@
         }
         if (isset($_POST['creategroup'])) {
             $cr = new WorkForm();
-            $cr->CRgroup($_POST['nameofgroup'],$_POST['viewandedit'],$_POST['creategr'],$_POST['addreq'],$_POST['vieredreq'],$_POST['adddoc'],$_POST['addreddoc']);
+            $cr->CRgroup($_POST['nameofgroup'],$_POST['viewandedit'],$_POST['creategr'],$_POST['addreq'],$_POST['vieredreq'],$_POST['adddoc'],$_POST['addreddoc'],$_POST['acceptreq']);
         }
         if (isset($_POST['createreq'])) {
             if (isset($idus)) {

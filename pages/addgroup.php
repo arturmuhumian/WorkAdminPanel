@@ -62,10 +62,13 @@
                                     <label>Заявки</label><br>
                                     <label>Добавление новых заявок</label>
                                     <input id="" name="addreq" value="4" type="checkbox" /><br>
+                                    <label>Утверждение заявок (Руководитель)</label>
+                                    <input id="" name="acceptreq" value="10" type="checkbox" /><br>
                                     <label>Просмотр и редактирование всех заявок</label>
                                     <input type="radio" id="sp1" name="vieredreq" value="5">
                                     <label>Просмотр и редактирование только своих заявок</label>
                                     <input type="radio" id="sp1"  name="vieredreq" value="6">
+                                    <label>Просмотр и редактирование только своих заявок</label>
                                 </p>
                                 <hr>
                                 <p>

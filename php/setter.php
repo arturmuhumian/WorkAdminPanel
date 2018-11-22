@@ -1,6 +1,44 @@
 <?php
 	class WorkForm
     {
+        function getListofRequestNoAccept()
+        {
+            $qw = "SELECT * FROM requests WHERE status='нуждается в подтверждении'";
+            $tempres = mysqli_query($this->conn(),$qw);
+            while ($result = mysqli_fetch_array($tempres))
+            {
+                printf('
+                <div class="row users-accept">
+                    <form action="" method="get">
+                       <div class="col-md-1 col-xs-12"> <span>%s</span></div>
+                        <div class="col-md-3 col-xs-12"> <span>%s</span></div>
+                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                         <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+
+
+                         <div class="col-md-2 col-xs-12">
+                                <textarea name="" id="comment-from-mentor"  ></textarea>
+                         </div>
+
+
+                         <div class="col-md-2 col-xs-12 correct-tools">
+                            <div class="watch-tools">
+                                  <button type="submit" name="addreq"><i class="fas fa-plus"></i></button>
+                            </div>
+
+                             <div class="watch-tools">
+                                   <button type="submit" name="delreq"><i class="fas fa-minus"></i></button>
+                                </div>
+                                  <div class="watch-tools">
+                                       <button type="submit" name="workagaine"><i class="far fa-clock"></i>
+                                       </button>
+                                </div>
+                         </div>
+                    </form>
+                </div>
+                ',$result['id'],$result['theme'],$result['status'],$result['review']);
+            }
+        }
         function getUserName()
         {
             $qw = "SELECT name FROM users WHERE id=".$_SESSION['iduser'];
@@ -117,7 +155,7 @@
                                     <div class="col-md-2 col-xs-12"> <span>%s</span></div>
                                     <div class="col-md-2 col-xs-12"> <span>%s</span></div>
                                     <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                                    <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                                    <div class="col-md-2 col-xs-12"> <span>%s %s</span></div>
                                     <div class="col-md-1 col-xs-12"> <span>%s</span></div>
                                     <div class="col-md-1 col-xs-12"> <span>%s</span></div>
                                     <div class="col-md-2 col-xs-12 correct-tools"> 
@@ -130,7 +168,7 @@
                                             </div>
                                     </div>
                                 </div>
-                                ',$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['status'],$res['date'],$res['id'],$res['id']);
+                                ',$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['currency'],$res['status'],$res['date'],$res['id'],$res['id']);
                             }
                         }
                         if ($swiths == 2) 
@@ -162,7 +200,7 @@
                                       </tr>
                                        <tr>
                                         <th>Сумма:</th>
-                                        <td><label for="" class="label-for-input" > %s </label></td>
+                                        <td><label for="" class="label-for-input" > %s %s </label></td>
                                       </tr>
                                        <tr>
                                         <th>Комментарий:</th>
@@ -180,7 +218,7 @@
                                         <th>Дата:</th>
                                         <td><label for="" class="label-for-input" > %s </label></td>
                                       </tr>
-                            ',$res['id'],$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['review'],$res['savefilename'],$res['realfilename'],$res['status'],$res['date']);
+                            ',$res['id'],$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['currency'],$res['review'],$res['savefilename'],$res['realfilename'],$res['status'],$res['date']);
                             }  
                         }
                     break;
@@ -199,7 +237,7 @@
                                         <div class="col-md-2 col-xs-12"> <span>%s</span></div>
                                         <div class="col-md-2 col-xs-12"> <span>%s</span></div>
                                         <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                                        <div class="col-md-2 col-xs-12"> <span>%s %s</span></div>
                                         <div class="col-md-1 col-xs-12"> <span>%s</span></div>
                                         <div class="col-md-1 col-xs-12"> <span>%s</span></div>
                                         <div class="col-md-2 col-xs-12 correct-tools"> 
@@ -212,7 +250,7 @@
                                                 </div>
                                         </div>
                                     </div>
-                                    ',$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['status'],$res['date'],$res['id'],$res['id']);
+                                    ',$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['currency'],$res['status'],$res['date'],$res['id'],$res['id']);
                             }
                         }
                         if ($swiths == 2) 
@@ -244,7 +282,7 @@
                                       </tr>
                                        <tr>
                                         <th>Сумма:</th>
-                                        <td><label for="" class="label-for-input" > %s </label></td>
+                                        <td><label for="" class="label-for-input" > %s %s </label></td>
                                       </tr>
                                        <tr>
                                         <th>Комментарий:</th>
@@ -262,7 +300,7 @@
                                         <th>Дата:</th>
                                         <td><label for="" class="label-for-input" > %s </label></td>
                                       </tr>
-                            ',$res['id'],$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['review'],$res['savefilename'],$res['realfilename'],$res['status'],$res['date']);
+                            ',$res['id'],$resuser['name'],$res['theme'],$res['object'],$res['sum'],$res['currency'],$res['review'],$res['savefilename'],$res['realfilename'],$res['status'],$res['date']);
                             }
                         }
                     break;
@@ -272,7 +310,7 @@
         {
             if (!empty($file)) {
                 $oldname= $_FILES['uploadfile']['name'];
-                $newname= "../uploads/requests/"."doc".time().".".pathinfo($_FILES['uploadfile']['name'], PATHINFO_EXTENSION);
+                $newname= "..//uploads/requests/"."doc".time().".".pathinfo($_FILES['uploadfile']['name'], PATHINFO_EXTENSION);
             }
 
             $date = date("Y-m-d");
@@ -469,7 +507,7 @@
             }
             // header('Location: accept.php');
         }
-        function CRgroup($name, $one, $two,$four,$fivesix,$eight,$nine)
+        function CRgroup($name, $one, $two,$four,$fivesix,$eight,$nine,$ten)
         {
             //проверка на существование группы
             $testbd = "SELECT name FROM groups WHERE name='$name'";
@@ -506,6 +544,16 @@
                         echo $qw."<br>";
                         if (mysqli_query($this->conn(),$qw)) {
                             echo "Добавлено ".$fivesix;
+                        }
+                    }
+                    if (isset($ten))
+                    {
+                        $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$ten)";
+                        echo $qw."<br>";
+                        if (mysqli_query($this->conn(),$qw)) {
+                            $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",3)";
+                            mysqli_query($this->conn(),$qw);
+                            echo "Добавлено ".$ten;
                         }
                     }
 
@@ -782,7 +830,7 @@
                 if($res['id_modul']==4 or $res['id_modul'] == 5 or $res['id_modul'] == 6)
                 {
                     if ($c<1) {
-                        include '../modules/mod3.php';
+                        //include '../modules/mod3.php';
                         $c++;
                     }
                 }
@@ -793,8 +841,8 @@
         }
     	function conn()
         {
-            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
-//            $link = mysqli_connect('neopeace.mysql.tools', 'neopeace_plpanel', '40Z%yCd!h7', 'neopeace_plpanel') or die("Ошибка " . mysqli_error($this->link));
+//            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
+            $link = mysqli_connect('neopeace.mysql.tools', 'neopeace_plpanel', '40Z%yCd!h7', 'neopeace_plpanel') or die("Ошибка " . mysqli_error($this->link));
             return $link;
         }
     }

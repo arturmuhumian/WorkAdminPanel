@@ -50,6 +50,7 @@
                             if (isset($_SESSION['SUPER_USER'])) {
                                 require_once "../modules/mod4.php";
                                 require_once "../modules/mod56.php";
+                                require_once "../modules/mod10.php";
                             }
                             else
                             {
@@ -59,8 +60,10 @@
                                 if ($acces->ControlAcces(5) or $acces->ControlAcces(6)) {
                                     require_once "../modules/mod56.php";
                                 }
+                                if ($acces->ControlAcces(10)) {
+                                    require_once "../modules/mod10.php";
+                                }
                             }
-                            
                         ?>
                      </div>
                 </div>
