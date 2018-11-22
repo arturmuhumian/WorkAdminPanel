@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16e55dec-3975-47df-a97f-c025d5abc508" name="Default Changelist" comment="" />
+    <list default="true" id="16e55dec-3975-47df-a97f-c025d5abc508" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/setter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="841" column="23" lean-forward="true" selection-start-line="841" selection-start-column="23" selection-end-line="841" selection-end-column="23" />
+            <state relative-caret-position="198">
+              <caret line="815" column="50" selection-start-line="815" selection-start-column="50" selection-end-line="815" selection-end-column="50" />
               <folding>
                 <element signature="e#251#257#0" expanded="true" />
               </folding>
@@ -266,7 +268,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25441000" />
+    <option name="totallyTimeSpent" value="26028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -278,11 +280,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13858365" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16237482" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32891566" />
@@ -462,8 +464,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/setter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="841" column="23" lean-forward="true" selection-start-line="841" selection-start-column="23" selection-end-line="841" selection-end-column="23" />
+        <state relative-caret-position="198">
+          <caret line="815" column="50" selection-start-line="815" selection-start-column="50" selection-end-line="815" selection-end-column="50" />
           <folding>
             <element signature="e#251#257#0" expanded="true" />
           </folding>
