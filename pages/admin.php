@@ -50,8 +50,19 @@
                   }
                   else
                   {
-                    $showmodul = new WorkForm();
-                    $showmodul->availableModules("req");
+                      $acces = new WorkForm();
+                      if ($acces->ControlAcces(1)){
+                          include "../modules/mod1.php";
+                      }
+                      if ($acces->ControlAcces(2)){
+                          include "../modules/mod2.php";
+                      }
+                      if ($acces->ControlAcces(3)){
+                          include "../modules/mod3.php";
+                      }
+                      if ($acces->ControlAcces(7)){
+                          include "../modules/mod7.php";
+                      }
                   }
                 ?>
                 <!-- Конец -->
