@@ -137,7 +137,7 @@
 
 
             switch ($ressw['id_modul']) {
-                case 5: echo "all";
+                case 5: //echo "all";
                         // получаем имя автора по ИД
                         if($swiths == 1)
                         {
@@ -220,7 +220,7 @@
                             }  
                         }
                     break;
-                case 6: echo "yourself"; 
+                case 6: //echo "yourself";
                         if($swiths == 1)
                         {
                             $qw = "SELECT * FROM requests WHERE id_owner=".$_SESSION['iduser'];
@@ -313,16 +313,16 @@
 
             $date = date("Y-m-d");
             $qw = "INSERT INTO requests VALUES (NULL, '$id_user', '$theme', '$object', '$sum', '$currency', '$review','', 'новая', '$date','$oldname','$newname');";
-             echo "<br>".$qw;
+             //echo "<br>".$qw;
             
             if (mysqli_query($this->conn(),$qw)) {
                 if (!empty($file)) {
                     copy($_FILES['uploadfile']['tmp_name'],$newname);
                     echo "doc-";
                 }
-                echo "add";
+                //echo "add";
             }
-            else echo "<br>"."not add";
+            //else echo "<br>"."not add";
         }
         function NewOrder($numberofoder,$datastart,$dataend,$namezakazchik,$nameispolnitel,$filenm1,$filenm2,$filenm3)
         {
@@ -335,7 +335,7 @@
                 $oldname1="";
                 $newname1="";
             }
-            echo count($filenm2 );
+            //echo count($filenm2 );
             if (!empty($filenm2) and !empty($_FILES['filenm2']['name'])) {
                 $oldname2= $_FILES['filenm2']['name'];
                 $newname2= "../uploads/contract/"."doc".time().rand(100, 999).".".pathinfo($_FILES['filenm2']['name'], PATHINFO_EXTENSION);
@@ -363,7 +363,7 @@
                 if (!empty($filenm3))
                     copy($_FILES['filenm3']['tmp_name'],$newname3);
             }
-            else echo "Некорректный ввод дат";
+            //else echo "Некорректный ввод дат";
             
         }
         function reWruteContract()
@@ -381,59 +381,59 @@
                 echo $task."<br>";
                 if(mysqli_query($this->conn(),$task))
                 {
-                    echo "OK"."<br>";
+                    //echo "OK"."<br>";
                 }
-                else echo "NO";
+                //else echo "NO";
             }
             if ($resbefore['object'] != $object) {
                 $task = "INSERT INTO storyofchange VALUES (NULL,'".$_SESSION['iduser']."', '$idreq','object','$object','$date')";
                 echo $task."<br>";
                 if(mysqli_query($this->conn(),$task))
                 {
-                    echo "OK"."<br>";
+                    //echo "OK"."<br>";
                 }
-                else echo "NO";
+                //else echo "NO";
             }
             if ($resbefore['currency'] != $currency) {
                 $task = "INSERT INTO storyofchange VALUES (NULL,'".$_SESSION['iduser']."', '$idreq','currency','$currency','$date')";
                 echo $task."<br>";
                 if(mysqli_query($this->conn(),$task))
                 {
-                    echo "OK"."<br>";
+                    //echo "OK"."<br>";
                 }
-                else echo "NO";
+                //else echo "NO";
             }
             if ($resbefore['sum'] != $sum) {
                 $task = "INSERT INTO storyofchange VALUES (NULL,'".$_SESSION['iduser']."', '$idreq','sum','$sum','$date')";
                 echo $task."<br>";
                 if(mysqli_query($this->conn(),$task))
                 {
-                    echo "OK"."<br>";
+                    //echo "OK"."<br>";
                 }
-                else echo "NO";
+                //else echo "NO";
             }
             if ($resbefore['review'] != $review) {
                 $task = "INSERT INTO storyofchange VALUES (NULL,'".$_SESSION['iduser']."', '$idreq','review','$review','$date')";
                 echo $task."<br>";
                 if(mysqli_query($this->conn(),$task))
                 {
-                    echo "OK"."<br>";
+                    //echo "OK"."<br>";
                 }
-                else echo "NO";
+//                else echo "NO";
             }
             if ($resbefore['status'] != $status) {
                 $task = "INSERT INTO storyofchange VALUES (NULL,'".$_SESSION['iduser']."', '$idreq','status','$status','$date')";
                 echo $task."<br>";
                 if(mysqli_query($this->conn(),$task))
                 {
-                    echo "OK"."<br>";
+                    //echo "OK"."<br>";
                 }
-                else echo "NO";
+//                else echo "NO";
             }
 
             $qw = "UPDATE requests SET theme='$theme', object='$object', sum='$sum', currency='$currency', review='$review',status='$status' WHERE id=$idreq";
             if (mysqli_query($this->conn(),$qw)) {
-                echo "updated";
+                //echo "updated";
             }
         }
 
@@ -485,7 +485,7 @@
                     break;
                 case 'accept': $qw = "UPDATE users SET status=1 WHERE id='$id'";
                 $qws = "DELETE FROM blacklist WHERE login='$login'";
-                echo $qws;
+                //echo $qws;
                     if(mysqli_query($this->conn(),$qw) and mysqli_query($this->conn(),$qws))
                         echo "Пользователь активирован";
                     break;
@@ -518,47 +518,50 @@
                     
                     if (isset($one)) {
                         $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$one)";
-                        echo $qw."<br>";
+                        //echo $qw."<br>";
                         if (mysqli_query($this->conn(),$qw)) {
                             echo "Добавлено 1";
                         }
                     }
                     if (isset($two)) {
                         $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$two)";
-                        echo $qw."<br>";
+                        //echo $qw."<br>";
                         if (mysqli_query($this->conn(),$qw)) {
                             echo "Добавлено 2";
                         }
                     }
-                    if (isset($four)) {
-                        $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$four)";
-                        echo $qw."<br>";
-                        if (mysqli_query($this->conn(),$qw)) {
-                            echo "Добавлено 4";
-                        }
-                    }
-                    if (isset($fivesix)) {
-                        $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$fivesix)";
-                        echo $qw."<br>";
-                        if (mysqli_query($this->conn(),$qw)) {
-                            echo "Добавлено ".$fivesix;
-                        }
-                    }
-                    if (isset($ten))
+                    if (isset($four) or isset($fivesix) or isset($ten))
                     {
-                        $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$ten)";
-                        echo $qw."<br>";
-                        if (mysqli_query($this->conn(),$qw)) {
-                            $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",3)";
-                            mysqli_query($this->conn(),$qw);
-                            echo "Добавлено ".$ten;
+                        $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",3)";
+                        mysqli_query($this->conn(),$qw);
+
+                        if (isset($four)) {
+                            $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$four)";
+                            if (mysqli_query($this->conn(),$qw)) {
+                                echo "Добавлено 4";
+                            }
+                        }
+                        if (isset($fivesix)) {
+                            $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$fivesix)";
+                            if (mysqli_query($this->conn(),$qw)) {
+                                echo "Добавлено ".$fivesix;
+                            }
+                        }
+                        if (isset($ten))
+                        {
+                            $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",$ten)";
+                            if (mysqli_query($this->conn(),$qw)) {
+                                echo "Добавлено ".$ten;
+                            }
                         }
                     }
+
+
 
 
                     if (isset($eight) or isset($nine)) {
                         $qw = "INSERT INTO sections VALUES (NULL,".$result['id'].",7)";
-                        echo $qw."<br>";
+                        //echo $qw."<br>";
                         if (mysqli_query($this->conn(),$qw)) {
                             // echo "Добавлено ".$fivesix;
                             if (isset($eight)) {
@@ -768,12 +771,15 @@
         {
             $qw = "SELECT email, login FROM users WHERE email='$email' or login='$login'";
             $result = mysqli_fetch_array(mysqli_query($this->conn(),$qw));
+            //echo $qw."<br>";
             if($result == 0)
             {
-                $qw = "INSERT INTO users VALUE (NULL,'$name','$login','".password_hash($password, PASSWORD_DEFAULT)."','$email','$phone',2,0,0)";
+                $qw = "INSERT INTO users VALUE (NULL,'$name','$login','".password_hash($password, PASSWORD_DEFAULT)."','$email','$phone',2,0,0,0)";
+                //echo $qw."<br>";
                 if (mysqli_query($this->conn(),$qw)) {
                 	echo "Ваш запрос на рассмотрении";
                 }
+                else echo "not normal";
             }
             else echo "Такой логин или email уже существует";
         }
@@ -839,8 +845,11 @@
         }
     	function conn()
         {
-            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
-//            $link = mysqli_connect('neopeace.mysql.tools', 'neopeace_plpanel', '40Z%yCd!h7', 'neopeace_plpanel') or die("Ошибка " . mysqli_error($this->link));
+            $data = include "dbconn.php";
+//            var_dump($data);
+            $link = mysqli_connect($data['host'],$data['login'],$data['password'],$data['dbname']);
+//            $link = mysqli_connect($dataserv['host'],$dataserv['user'],$dataserv['password'],$dataserv['database']) or die("Ошибка " . mysqli_error($this->link));
+//            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
             return $link;
         }
     }

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
     session_start();
     require_once "../php/action.php";
@@ -6,6 +5,7 @@
     $acces = new WorkForm();
     $acces->ControlAcces(10);
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
