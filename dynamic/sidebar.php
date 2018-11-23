@@ -1,9 +1,11 @@
 <div class="col-md-2 left-side">
 
     <div class="dropdown">
-        <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true"><i class="fas fa-globe-americas"></i>
-            Все разделы панели
-        </div>
+        <a href="../pages/admin.php">
+            <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true"><i class="fas fa-globe-americas"></i>
+                Все разделы панели
+            </div>
+        </a>
     </div>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-//    include "../ini.php";
+    include "../ini.php";
     session_start();
     require_once "../php/action.php";
     require_once "../php/setter.php";
@@ -15,17 +15,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-<link rel="stylesheet" href="../css/style.css">
-<script src= "../js/all_query.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src= "../js/all_query.js"></script>
 </head>
 <body>
      <div class="admin">
@@ -54,16 +54,17 @@
                
                 </div>
                 <div class="container-fluid">
-                <div class="row users-list hidden-xs hidden-sm">
-                    <div class="col-md-1 col-xs-12"> <span>ID</span></div>
-                    <div class="col-md-3 col-xs-12"> <span>Заявка</span></div>
-                    <div class="col-md-2 col-xs-12"> <span>Статус</span></div>
-                    <div class="col-md-2 col-xs-12"> <span>Комментарий</span></div>
-                    <div class="col-md-2 col-xs-12"> <span>Комментарий руководителя</span></div>
-                    <div class="col-md-2 col-xs-12 correct-tools"> 
-                       <span>Действия</span>
+                    <div class="row users-list hidden-xs hidden-sm">
+                        <div class="col-md-2 col-xs-12"> <span>Заявитель</span></div>
+                        <div class="col-md-2 col-xs-12"> <span>Тема</span></div>
+                        <div class="col-md-2 col-xs-12"> <span>Объект</span></div>
+                        <div class="col-md-1 col-xs-12"> <span>Сумма</span></div>
+                        <div class="col-md-2 col-xs-12"> <span>Статус</span></div>
+                        <div class="col-md-1 col-xs-12"> <span>Дата</span></div>
+                        <div class="col-md-2 col-xs-12 correct-tools">
+                        <span>Действия</span>
+                        </div>
                     </div>
-                </div>
 
                     <?php
                         $acces->getListofRequestNoAccept();

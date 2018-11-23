@@ -61,4 +61,35 @@
             $updcontr = new WorkForm();
             $updcontr->UPDcontr($_GET['id'], $_POST['numberofoder'], $_POST['datastart'], $_POST['dataend'], $_POST['status'], $_POST['namezakazchik'], $_POST['nameispolnitel']);
         }
+
+
+        if (isset($_GET['acceptreqs']))
+        {
+            $bd = new WorkForm();
+            $qw = "UPDATE requests SET status='выполнена' WHERE id=".$_GET['acceptreqs'];
+            if (mysqli_query($bd->conn(),$qw))
+                echo "";
+        }
+        if (isset($_GET['cancelreqs']))
+        {
+            $bd = new WorkForm();
+            $qw = "UPDATE requests SET status='отклонена' WHERE id=".$_GET['cancelreqs'];
+            if (mysqli_query($bd->conn(),$qw))
+                echo "";
+        }
+        if (isset($_GET['workagains']))
+        {
+            $bd = new WorkForm();
+            $qw = "UPDATE requests SET status='возвращена на доработку' WHERE id=".$_GET['workagains'];
+            if (mysqli_query($bd->conn(),$qw))
+                echo "возвращена на доработку";
+        }
+        if (isset($_POST['updchangereview']))
+        {
+            $newriew = $_POST['newreview'];
+            $bd = new WorkForm();
+            $qw = "UPDATE requests SET reviewofhead='$newriew' WHERE id=".$_GET['id'];
+            if (mysqli_query($bd->conn(),$qw))
+                echo "";
+        }
 ?>

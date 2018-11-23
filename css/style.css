@@ -411,7 +411,7 @@ a.tools-status:hover {
     max-width: 20%;
 }*/
 .new-icon-text {
-    width: 82%;
+    width: 64%;
 }
 .center-icon {
     text-align: center;
@@ -534,7 +534,7 @@ button#sort-by-customer:after {
     
 }
 textarea#comment-from-mentor {
-    box-shadow: none;
+    width: 100%;
 }
 /*.request-add {
     background: green;
@@ -546,7 +546,11 @@ textarea#comment-from-mentor {
     background: yellow;
 }
 */
-
+.full-watch-request>a{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
 @media (max-width: 360px){
 .tools {
     padding-left: 0px!important;
