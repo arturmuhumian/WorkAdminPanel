@@ -9,34 +9,32 @@
             {
                 printf('
                 <div class="row users-accept">
-                    <form action="" method="get">
-                       <div class="col-md-1 col-xs-12"> <span>%s</span></div>
-                        <div class="col-md-3 col-xs-12"> <span>%s</span></div>
-                        <div class="col-md-2 col-xs-12"> <span>%s</span></div>
-                         <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                     <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                    <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                    <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                    <div class="col-md-1 col-xs-12"> <span>%s %s</span></div>
+                    <div class="col-md-2 col-xs-12"> <span>%s</span></div>
+                    <div class="col-md-1 col-xs-12"> <span>%s</span></div>
 
-
-                         <div class="col-md-2 col-xs-12">
-                                <textarea name="" id="comment-from-mentor"  ></textarea>
-                         </div>
-
-
-                         <div class="col-md-2 col-xs-12 correct-tools">
-                            <div class="watch-tools">
-                                  <button type="submit" name="addreq"><i class="fas fa-plus"></i></button>
+             
+             
+                    <div class="col-md-2 col-xs-12 correct-tools"> 
+                       <div class="watch-tools">
+                            <a href="lead-request.php?id=%s"><button class="full-watch-request"><i class="far fa-eye"></i></button></a>
+                        </div>
+                        <div class="watch-tools">
+                              <a href="?acceptreqs=%s"><button class="request-add"><i class="fas fa-plus"></i></button></a>
+                        </div>
+    
+                         <div class="watch-tools">
+                               <a href="?cancelreqs=%s"><button class="request-cancel"><i class="fas fa-minus"></i></button></a>
                             </div>
-
-                             <div class="watch-tools">
-                                   <button type="submit" name="delreq"><i class="fas fa-minus"></i></button>
-                                </div>
-                                  <div class="watch-tools">
-                                       <button type="submit" name="workagaine"><i class="far fa-clock"></i>
-                                       </button>
-                                </div>
-                         </div>
-                    </form>
+                         <div class="watch-tools">
+                               <a href="?workagains=%s"><button class="request-time"><i class="far fa-clock"></i></button></a>
+                            </div>
+                    </div>
                 </div>
-                ',$result['id'],$result['theme'],$result['status'],$result['review']);
+                ',$this->getUserName(),$result['theme'],$result['object'],$result['sum'],$result['currency'],$result['status'],$result['date'],$result['id'],$result['id'],$result['id'],$result['id']);
             }
         }
         function getUserName()
@@ -310,12 +308,12 @@
         {
             if (!empty($file)) {
                 $oldname= $_FILES['uploadfile']['name'];
-                $newname= "..//uploads/requests/"."doc".time().".".pathinfo($_FILES['uploadfile']['name'], PATHINFO_EXTENSION);
+                $newname= "../uploads/requests/"."doc".time().".".pathinfo($_FILES['uploadfile']['name'], PATHINFO_EXTENSION);
             }
 
             $date = date("Y-m-d");
-            $qw = "INSERT INTO requests VALUES (NULL, '$id_user', '$theme', '$object', '$sum', '$currency', '$review', 'новая', '$date','$oldname','$newname');";
-            // echo "<br>".$qw;
+            $qw = "INSERT INTO requests VALUES (NULL, '$id_user', '$theme', '$object', '$sum', '$currency', '$review','', 'новая', '$date','$oldname','$newname');";
+             echo "<br>".$qw;
             
             if (mysqli_query($this->conn(),$qw)) {
                 if (!empty($file)) {
@@ -841,8 +839,8 @@
         }
     	function conn()
         {
-//            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
-            $link = mysqli_connect('neopeace.mysql.tools', 'neopeace_plpanel', '40Z%yCd!h7', 'neopeace_plpanel') or die("Ошибка " . mysqli_error($this->link));
+            $link = mysqli_connect('localhost', 'root', 'root', 'panelplatform') or die("Ошибка " . mysqli_error($this->link));
+//            $link = mysqli_connect('neopeace.mysql.tools', 'neopeace_plpanel', '40Z%yCd!h7', 'neopeace_plpanel') or die("Ошибка " . mysqli_error($this->link));
             return $link;
         }
     }

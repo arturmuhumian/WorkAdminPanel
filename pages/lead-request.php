@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+    require_once "../php/action.php";
+    require_once "../php/setter.php";
+    $acces = new WorkForm();
+    $acces->ControlAcces(10);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Утверждение заявки руководителем</title>
+    <title>Полный просмотр заявки</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -41,74 +48,76 @@
                 <div class="row main-page">
                     <h2 style="padding: 10px 5px 10px 29px;"><i class="far fa-eye"></i>
                      Полный просмотр заявки</h2>
-                    <a href="accept-request.html" class="before-page"> &larr; Вернуться на предыдущую страницу</a>
+                    <a href="accept-request.php" class="before-page"> &larr; Вернуться на предыдущую страницу</a>
                 </div>
                     <div class="col-md-6">
                      <div id="correct-users" class="center-block">
-                           
+                         <?php
+                            $result = $acces->showReq($_GET['id']);
+                         ?>
                            <div class="table-responsive" style="max-width: 100%; overflow: auto;">
                             <table style="width:100%">
                                   <tr>
-                                    <th>ID:</th>
-                                    <td>
-                                        <label for="" class="label-for-input" > ID </label>
-                                    </td>
-                                  </tr>
-                                  <tr>
                                     <th>Заявитель:</th>
-                                    <td><label for="" class="label-for-input" > Заявитель </label></td>
+                                    <td><label for="" class="label-for-input" > <?php echo $acces->getUserName(); ?> </label></td>
                                   </tr>
                                    <tr>
                                     <th>Тема:</th>
-                                    <td><label for="" class="label-for-input" > Тема </label></td>
+                                    <td><label for="" class="label-for-input" > <?php echo $result['theme'];?> </label></td>
                                   </tr>
                                    <tr>
                                     <th>Объект:</th>
-                                    <td><label for="" class="label-for-input" > Объект </label></td>
+                                    <td><label for="" class="label-for-input" > <?php echo $result['object'];?> </label></td>
                                   </tr>
                                    <tr>
                                     <th>Сумма:</th>
-                                    <td><label for="" class="label-for-input" > Сумма </label></td>
+                                    <td><label for="" class="label-for-input" > <?php echo $result['sum']." ".$result['currency'];?> </label></td>
                                   </tr>
                                    <tr>
                                     <th>Комментарий:</th>
-                                    <td><label for="" class="label-for-input" > Комментарий </label></td>
+                                    <td><label for="" class="label-for-input" > <?php echo $result['review'];?> </label></td>
                                   </tr>
                                    <tr>
                                     <th>Файл:</th>
-                                    <td><label for="" class="label-for-input" > Файл </label></td>
+                                    <td><label for="" class="label-for-input" > <a href="<?php echo $result['savefilename'];?>"><?php echo $result['realfilename'];?></a> </label></td>
                                   </tr>
                                    <tr>
                                     <th>Статус:</th>
-                                    <td><label for="" class="label-for-input" > Статус </label></td>
+                                    <td><label for="" class="label-for-input" > <?php echo $result['status'];?> </label></td>
                                   </tr>
                                    <tr>
-                                    <th>Время:</th>
-                                    <td><label for="" class="label-for-input" > Время </label></td>
+                                    <th>Дата:</th>
+                                    <td><label for="" class="label-for-input" > <?php echo $result['date'];?> </label></td>
                                   </tr>
-                                   
-                                    <tr>
-                                        <th>Комментарий от руководителя:</th>
-                                        <td>
-                                            <textarea name="" id="comment-from-mentor" ></textarea>
-                                        </td>
-                                  </tr>
-                                  <tr>
-                                    <th>Действия: </th>
-                                    <td> 
-                                        <div class="watch-tools">
-                                          <button class="request-add"><i class="fas fa-plus"></i></button>
-                                        </div>
-    
-                                        <div class="watch-tools">
-                                           <button class="request-cancel"><i class="fas fa-minus"></i></button>   
-                                        </div>
-                                        <div class="watch-tools">
-                                           <button class="request-time"><i class="far fa-clock"></i>
-                                           </button>  
-                                        </div>
-                                     </td>
-                                  </tr>
+
+                                      <tr>
+                                          <th>Комментарий от руководителя:</th>
+                                          <td>
+                                              <form action="" method="post">
+                                                  <?php
+                                                    printf('<textarea name="newreview" id="comment-from-mentor" >%s</textarea>',$result['reviewofhead']);
+                                                    if (!empty($result['reviewofhead']))
+                                                        printf('<input type="submit" name="updchangereview" value="Изменить">');
+                                                    else printf('<input type="submit" name="updchangereview" value="Добавить">');
+                                                  ?>
+                                              </form>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <th>Действия: </th>
+                                          <td>
+                                              <div class="watch-tools">
+                                                  <a href="?id=<?php echo $result['id']?>&acceptreqs=<?php echo $result['id']?>"><button class="request-add"><i class="fas fa-plus"></i></button></a>
+                                              </div>
+                                              <div class="watch-tools">
+                                                  <a href="?id=<?php echo $result['id']?>&cancelreqs=<?php echo $result['id']?>"><button class="request-cancel"><i class="fas fa-minus"></i></button></a>
+                                              </div>
+                                              <div class="watch-tools">
+                                                  <a href="?id=<?php echo $result['id']?>&workagains=<?php echo $result['id']?>"><button class="request-time"><i class="far fa-clock"></i></button></a>
+                                              </div>
+                                          </td>
+                                      </tr>
+
                                 </table>
                            </div>
                            
